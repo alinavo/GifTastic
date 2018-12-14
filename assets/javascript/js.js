@@ -5,6 +5,7 @@ console.log(topics);
 
 //sets up the page with current topics in buttons
 function getButtons() {
+    //empties display div to prevent repetition
     $("#buttons-display").empty();
 
     for (var i = 0; i < topics.length; i++) {
@@ -33,9 +34,10 @@ $(document).on('click', "#add-topic", function () {
     getButtons();
 });
 
+
 $(document).on("click", ".gif-button", function () {
     // "this"= button that was clicked
-    var person = $(this).attr("data-gif");
+    var person = $(this).attr("data-name");
     // Constructing a URL to search Giphy for the name of the character
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         person + "&api_key=QuYYKFCfRPq0DkGMChE0k7owDdvOSSj6&limit=10";
