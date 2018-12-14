@@ -4,7 +4,7 @@ var topics = ["Harry Potter", "Ron Weasley", "Hermion Granger", "Albut Dumbledor
 console.log(topics);
 
 function getButtons() {
-    $(".buttons-display").empty();
+    $("#buttons-display").empty();
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>").text(topics[i]);
         button.attr("data-name", topics[i]);
