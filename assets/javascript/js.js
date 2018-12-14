@@ -3,17 +3,21 @@
 var topics = ["Harry Potter", "Ron Weasley", "Hermion Granger", "Albut Dumbledore", "Neville Longbottom", "Ginny Weasley", "Lord Voldemort"];
 console.log(topics);
 
+//sets up the page with current topics in buttons
 function getButtons() {
     $("#buttons-display").empty();
+
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>").text(topics[i]);
         button.attr("data-name", topics[i]);
         button.addClass("gif-button");
         $("#buttons-display").append(button);
         console.log(button);
+
     }
 }
-getButtons();
+
+
 
 
 //adding a new topic to empty array
@@ -29,10 +33,10 @@ $(document).on('click', "#add-topic", function () {
     getButtons();
 });
 
-$(document).on("click", "button", function () {
+$(document).on("click", ".gif-button", function () {
     // "this"= button that was clicked
     var person = $(this).attr("data-gif");
-    // Constructing a URL to search Giphy for the name of the person who said the quote
+    // Constructing a URL to search Giphy for the name of the character
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         person + "&api_key=QuYYKFCfRPq0DkGMChE0k7owDdvOSSj6&limit=10";
     // Performing our AJAX GET request
@@ -41,7 +45,7 @@ $(document).on("click", "button", function () {
         method: "GET"
     })
         // After the data comes back from the API
-        .done(function (response) {
+        .then(function (response) {
             // Storing an array of results in the results variable
             var results = response.data;
             console.log(results);
@@ -57,7 +61,7 @@ $(document).on("click", "button", function () {
                     var rating = results[i].rating;
                     // Creating a paragraph tag with the result item's rating
                     var p = $("<p>").text("Rating: " + rating);
-                    // Creating an image tag∫
+                    // Creating an image tag
                     var gifImage = $("<img class = 'result'>");
                     // Giving the image tag an src attribute of a proprty pulled off the
                     // result item
@@ -65,15 +69,15 @@ $(document).on("click", "button", function () {
                     gifImage.attr("data-state", "still");
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-animate", results[i].images.fixed_height.url);
-                    // Appending the paragraph and personImage we created to the "gifDiv" div we created
+                    // Appending the paragraph and personImage we created to the "gifDiv" div 
                     gifDiv.append(p);
                     gifDiv.append(gifImage);
-                    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-                    $("#gifs-display").append(gifDiv);
+                    // Prepending the gifDiv to the "#gifs-display in HTML
+                    $("#gifs-display").prepend(gifDiv);
                 }
             }
         });
-
+//using the class added to the gifImage
     $(document).on("click", ".result", function () {
         var state = $(this).attr("data-state");
 
@@ -86,4 +90,5 @@ $(document).on("click", "button", function () {
         }
 
     });
+    getButtons();
 });
