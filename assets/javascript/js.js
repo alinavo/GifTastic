@@ -1,6 +1,6 @@
 
 //array for topics
-var topics = ["Harry Potter", "Ron Weasley", "Hermion Granger", "Albut Dumbledore", "Neville Longbottom", "Ginny Weasley", "Lord Voldemort"];
+var topics = ["Harry Potter", "Ron Weasley", "Hermion Granger", "Albus Dumbledore", "Neville Longbottom", "Ginny Weasley", "Lord Voldemort"];
 console.log(topics);
 
 //sets up the page with current topics in buttons
@@ -25,6 +25,12 @@ function getButtons() {
 $(document).on('click', "#add-topic", function () {
     event.preventDefault();
     // This line of code will grab the input from the textbox
+    var alreadyExist = false;
+	if(topics.indexOf($("#topic-input").val()) !== -1) {
+        alreadyExist = true;
+        alert("That button already exists!");
+	}
+	if($("#topic-input").val() !== "" && alreadyExist === false) {
     var newTopic = $("#topic-input").val().trim();
     console.log(newTopic);
     // Pushes new button topic created into topics array
@@ -32,6 +38,7 @@ $(document).on('click', "#add-topic", function () {
     console.log(topics);
     $("#topic-input").val('');
     getButtons();
+    }
 });
 
 
