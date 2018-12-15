@@ -32,9 +32,9 @@ h1{
 }
 
 #topic-form{
-    margin: auto;
+    margin-left: 28%;
     color: goldenrod;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico';
     font-size: 20px;
 }
 
