@@ -79,13 +79,15 @@ $(document).on("click", ".gif-button", function () {
                     var gifImage = $("<img class = 'result'>");
                     // Giving the image tag an src attribute of a proprty pulled off the
                     // result item
-                    gifImage.attr("src", results[i].images.fixed_height.url);
+                    gifImage.addClass("card");
+                    gifImage.attr("src", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-state", "still");
                     gifImage.attr("data-still", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-animate", results[i].images.fixed_height.url);
                     // Appending the paragraph and personImage we created to the "gifDiv" div 
-                    gifDiv.append(p);
                     gifDiv.append(gifImage);
+                    gifDiv.append(p);
+                    
                     // Prepending the gifDiv to the "#gifs-display in HTML
                     $("#gifs-display").prepend(gifDiv);
                 }
@@ -107,7 +109,9 @@ $(document).on("click", ".gif-button", function () {
   
 });  
 
-$(document).ready(){
-    getButtons()
-};
+$(document).ready(function() {
+    getButtons();
+});
+
+
 
