@@ -1,15 +1,47 @@
+body {
+    background-image: url(../images/29969.jpg);
+    /* background-position: left top; */
+    /* background-repeat: repeat-y; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
 .jumbotron {
-    background-color: aqua;
+    opacity: 0;
+}
+
+.heading{
+    font-family: 'Pacifico';
+    text-align: center;
+    font-size: 32px;
+    margin: auto;
+    color: goldenrod;
 }
 
 h1{
     font-size: 50px;
+    color: white;
+   
 }
 
 .gif-button {
- background-color: blue;
- color: white;
+ background-color: white;
+ color: navy;
  font-size: 16px;
+}
+
+#topic-form{
+    margin: auto;
+    color: goldenrod;
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
+}
+
+p{
+    color: goldenrod;
+    font-size: 16px; 
+    font-style: bold;
 }
 
 

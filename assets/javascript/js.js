@@ -59,6 +59,9 @@ $(document).on("click", ".gif-button", function () {
             var results = response.data;
             console.log(results);
 
+            //empties other gifs before adding new ones
+            $("#gifs-display").empty();
+
             // Looping over every result item
             for (var i = 0; i < results.length; i++) {
 
@@ -69,7 +72,7 @@ $(document).on("click", ".gif-button", function () {
                     // Storing the result item's rating
                     var rating = results[i].rating;
                     // Creating a paragraph tag with the result item's rating
-                    var p = $("<p>").text("Rating: " + rating);
+                    var p = $("<p>").text("RATING: " + rating.toUpperCase());
                     // Creating an image tag
                     var gifImage = $("<img class = 'result'>");
                     // Giving the image tag an src attribute of a proprty pulled off the
