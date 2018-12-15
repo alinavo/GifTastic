@@ -1,4 +1,5 @@
 
+
 //array for topics
 var topics = ["Harry Potter", "Ron Weasley", "Hermion Granger", "Albus Dumbledore", "Neville Longbottom", "Ginny Weasley", "Lord Voldemort"];
 console.log(topics);
@@ -6,8 +7,8 @@ console.log(topics);
 //sets up the page with current topics in buttons
 function getButtons() {
     //empties display div to prevent repetition
+   
     $("#buttons-display").empty();
-
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>").text(topics[i]);
         button.attr("data-name", topics[i]);
@@ -24,6 +25,7 @@ function getButtons() {
 //adding a new topic to empty array
 $(document).on('click', "#add-topic", function () {
     event.preventDefault();
+   
     // This line of code will grab the input from the textbox
     var alreadyExist = false;
 	if(topics.indexOf($("#topic-input").val()) !== -1) {
@@ -102,5 +104,10 @@ $(document).on("click", ".gif-button", function () {
         }
 
     });
-    getButtons();
-});
+  
+});  
+
+$(document).ready(){
+    getButtons()
+};
+
